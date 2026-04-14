@@ -276,7 +276,7 @@ function Header() {
   const navLinks = [
     { href: '#services', label: 'Services' },
     { href: '#portfolio', label: 'Portfolio' },
-    { href: '#academy', label: 'Academy' },
+    { href: '/courses', label: 'Courses' },
     { href: '#process', label: 'Process' },
     { href: '#about', label: 'About' },
     { href: '#contact', label: 'Contact' },
@@ -870,163 +870,6 @@ function Portfolio() {
               >
                 Start a similar project <ArrowRight size={15} />
               </a>
-            </div>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─────────────────────────────────────────────
-   ACADEMY
-   ───────────────────────────────────────────── */
-
-function Academy() {
-  return (
-    <section
-      id="academy"
-      className="py-24 md:py-32"
-      style={{ background: '#0A0A0A' }}
-    >
-      <div className="max-w-6xl mx-auto px-5 md:px-10">
-        <Reveal>
-          <SectionHeading
-            label="Learn With Us"
-            title="Fishbone Academy"
-            subtitle="Level up your skills with our hands-on courses and live workshops. Learn the same strategies and tools we use for our clients."
-          />
-        </Reveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {/* Video Courses */}
-          <Reveal delay={100}>
-            <div
-              className="rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1"
-              style={{
-                background: 'rgba(255,255,255,0.03)',
-                backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255,255,255,0.08)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255,193,7,0.3)';
-                e.currentTarget.style.boxShadow = '0 0 30px rgba(255,193,7,0.1)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
-            >
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style={{ background: 'linear-gradient(135deg, #FFC107, #FF9800)' }}>
-                <Play size={22} className="text-black ml-0.5" />
-              </div>
-              <span className="inline-block text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full mb-4" style={{ background: 'rgba(255,193,7,0.1)', color: '#FFC107' }}>
-                On-Demand
-              </span>
-              <h3
-                className="text-xl font-bold text-white mb-3"
-                style={{ fontFamily: 'var(--font-space-grotesk)' }}
-              >
-                Video Courses
-              </h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                Self-paced video courses covering website development, social media strategy, graphic design fundamentals, and AI-powered automation.
-              </p>
-              <ul className="space-y-2.5 mb-6">
-                {['HD video lessons + worksheets', 'Lifetime access to materials', 'Downloadable templates', 'Certificate of completion'].map((item) => (
-                  <li key={item} className="flex items-center gap-2.5 text-sm text-gray-300">
-                    <CheckCircle size={14} style={{ color: '#FFC107' }} className="shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <button
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-black transition-all duration-200 cursor-pointer"
-                style={{ background: 'linear-gradient(135deg, #FFC107, #FF9800)' }}
-              >
-                Coming Soon <ArrowRight size={14} />
-              </button>
-            </div>
-          </Reveal>
-
-          {/* Live Canva Workshops */}
-          <Reveal delay={200}>
-            <div
-              className="rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1"
-              style={{
-                background: 'rgba(255,255,255,0.03)',
-                backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255,255,255,0.08)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255,193,7,0.3)';
-                e.currentTarget.style.boxShadow = '0 0 30px rgba(255,193,7,0.1)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
-            >
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style={{ background: 'linear-gradient(135deg, #FFC107, #FF9800)' }}>
-                <Users size={22} className="text-black" />
-              </div>
-              <div className="flex items-center gap-1.5 mb-4">
-                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#FFC107' }} />
-                <span className="text-[10px] font-bold tracking-wider uppercase" style={{ color: '#FFC107' }}>
-                  Live Sessions
-                </span>
-              </div>
-              <h3
-                className="text-xl font-bold text-white mb-3"
-                style={{ fontFamily: 'var(--font-space-grotesk)' }}
-              >
-                Live Canva Workshops
-              </h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                Interactive live workshops to master Canva for your business. From social media graphics to brand kits, presentations, and marketing materials.
-              </p>
-              <ul className="space-y-2.5 mb-6">
-                {['Live instructor-led sessions', 'Real-time Q&A and feedback', 'Hands-on design exercises', 'Workshop recordings & resources'].map((item) => (
-                  <li key={item} className="flex items-center gap-2.5 text-sm text-gray-300">
-                    <CheckCircle size={14} style={{ color: '#FFC107' }} className="shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <button
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-black transition-all duration-200 cursor-pointer"
-                style={{ background: 'linear-gradient(135deg, #FFC107, #FF9800)' }}
-              >
-                Coming Soon <ArrowRight size={14} />
-              </button>
-
-              {/* Canva Art Lab for Kids */}
-              <div className="mt-6 pt-6" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-                <div className="flex flex-col sm:flex-row gap-4 items-start">
-                  <div className="relative w-full sm:w-28 h-28 rounded-xl overflow-hidden shrink-0">
-                    <Image
-                      src="/images/canva-art-lab-kids.jpg"
-                      alt="Canva Art Lab for Kids"
-                      fill
-                      style={{ objectFit: 'cover' }}
-                    />
-                  </div>
-                  <div>
-                    <span className="inline-block text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full mb-1.5" style={{ background: 'rgba(255,193,7,0.15)', color: '#FFC107' }}>
-                      New Workshop
-                    </span>
-                    <h4
-                      className="text-sm font-bold text-white mb-1"
-                      style={{ fontFamily: 'var(--font-space-grotesk)' }}
-                    >
-                      Canva Art Lab for Kids
-                    </h4>
-                    <p className="text-gray-500 text-xs leading-relaxed">
-                      An online graphic design workshop for the kiddos! Fun, guided Canva projects that teach creativity and digital design skills.
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
           </Reveal>
         </div>
@@ -1736,7 +1579,7 @@ function Footer() {
   const footerLinks = [
     { label: 'Services', href: '#services' },
     { label: 'Portfolio', href: '#portfolio' },
-    { label: 'Academy', href: '#academy' },
+    { label: 'Courses', href: '/courses' },
     { label: 'Process', href: '#process' },
     { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },
@@ -1868,7 +1711,6 @@ export default function V3Page() {
       <Hero />
       <Services />
       <Portfolio />
-      <Academy />
       <Process />
       <About />
       <Testimonials />
