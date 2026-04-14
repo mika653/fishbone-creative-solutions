@@ -1016,9 +1016,9 @@ function About() {
                     backgroundClip: 'text',
                   }}
                 >
-                  Boutique
+                  Creative
                 </span>{' '}
-                Creative Agency
+                Agency
               </h2>
               <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-6">
                 Fishbone Creative Solutions was built for businesses that refuse mediocrity.
