@@ -22,6 +22,10 @@ import {
   Quote,
   MapPin,
   ExternalLink,
+  Play,
+  Users,
+  CheckCircle,
+  GraduationCap,
 } from "lucide-react";
 
 /* ─────────────────────────────────────────
@@ -150,6 +154,7 @@ const PROCESS_PHASES: ProcessPhase[] = [
 const NAV_LINKS = [
   { label: "Work", href: "#work" },
   { label: "Services", href: "#services" },
+  { label: "Academy", href: "#academy" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
@@ -694,6 +699,138 @@ export default function V2Page() {
       </section>
 
       {/* ──────────────────────────────────────────
+          ACADEMY
+          ────────────────────────────────────────── */}
+      <section id="academy" className="py-24 md:py-32 px-6 lg:px-8 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <FadeIn className="mb-16">
+            <div className="flex items-center gap-4 mb-4">
+              <span className="block w-8 h-0.5 rounded-full" style={{ background: "#FF5722" }} />
+              <span className="text-xs font-medium tracking-[0.2em] uppercase text-neutral-400">
+                Learn With Us
+              </span>
+            </div>
+            <h2
+              className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4"
+              style={{ fontFamily: "var(--font-space-grotesk)" }}
+            >
+              Fishbone Academy
+            </h2>
+            <p className="text-neutral-500 max-w-xl text-base">
+              Hands-on courses and live workshops. Learn the same strategies and tools we use for our clients.
+            </p>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Video Courses */}
+            <FadeIn delay={100}>
+              <div className="border border-neutral-200 rounded-2xl overflow-hidden hover:border-[#FF5722]/30 hover:shadow-md transition-all duration-300">
+                <div className="p-8">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: "#FF5722" }}>
+                      <Play size={18} className="text-white ml-0.5" />
+                    </div>
+                    <span className="text-[11px] font-medium tracking-[0.15em] uppercase text-neutral-400">On-Demand</span>
+                  </div>
+                  <h3
+                    className="text-xl font-bold text-neutral-900 mb-3"
+                    style={{ fontFamily: "var(--font-space-grotesk)" }}
+                  >
+                    Video Courses
+                  </h3>
+                  <p className="text-neutral-500 text-sm leading-relaxed mb-6">
+                    Self-paced video courses covering website development, social media strategy, graphic design fundamentals, and AI-powered automation.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    {["HD video lessons + worksheets", "Lifetime access", "Downloadable templates", "Certificate of completion"].map((item) => (
+                      <li key={item} className="flex items-center gap-2 text-sm text-neutral-600">
+                        <CheckCircle size={14} style={{ color: "#FF5722" }} className="shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <button
+                    className="inline-flex items-center gap-2 text-sm font-medium transition-colors cursor-pointer bg-transparent border-none"
+                    style={{ color: "#FF5722", fontFamily: "inherit" }}
+                  >
+                    Coming Soon <ArrowRight size={14} />
+                  </button>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Live Canva Workshops */}
+            <FadeIn delay={200}>
+              <div className="border border-neutral-200 rounded-2xl overflow-hidden hover:border-[#FF5722]/30 hover:shadow-md transition-all duration-300">
+                <div className="p-8">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: "#FF5722" }}>
+                      <Users size={18} className="text-white" />
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#FF5722" }} />
+                      <span className="text-[11px] font-medium tracking-[0.15em] uppercase text-neutral-400">Live Sessions</span>
+                    </div>
+                  </div>
+                  <h3
+                    className="text-xl font-bold text-neutral-900 mb-3"
+                    style={{ fontFamily: "var(--font-space-grotesk)" }}
+                  >
+                    Live Canva Workshops
+                  </h3>
+                  <p className="text-neutral-500 text-sm leading-relaxed mb-6">
+                    Interactive live workshops to master Canva for your business. From social media graphics to brand kits, presentations, and marketing materials.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    {["Live instructor-led sessions", "Real-time Q&A and feedback", "Hands-on design exercises", "Workshop recordings & resources"].map((item) => (
+                      <li key={item} className="flex items-center gap-2 text-sm text-neutral-600">
+                        <CheckCircle size={14} style={{ color: "#FF5722" }} className="shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <button
+                    className="inline-flex items-center gap-2 text-sm font-medium transition-colors cursor-pointer bg-transparent border-none"
+                    style={{ color: "#FF5722", fontFamily: "inherit" }}
+                  >
+                    Coming Soon <ArrowRight size={14} />
+                  </button>
+
+                  {/* Canva Art Lab for Kids */}
+                  <div className="mt-6 pt-6 border-t border-neutral-100">
+                    <div className="flex flex-col sm:flex-row gap-4 items-start">
+                      <div className="relative w-full sm:w-28 h-28 rounded-xl overflow-hidden shrink-0">
+                        <Image
+                          src="/images/canva-art-lab-kids.jpg"
+                          alt="Canva Art Lab for Kids"
+                          fill
+                          style={{ objectFit: "cover" }}
+                        />
+                      </div>
+                      <div>
+                        <span className="inline-block text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded-full mb-1.5" style={{ background: "#FF5722" + "15", color: "#FF5722" }}>
+                          New Workshop
+                        </span>
+                        <h4
+                          className="text-sm font-bold text-neutral-900 mb-1"
+                          style={{ fontFamily: "var(--font-space-grotesk)" }}
+                        >
+                          Canva Art Lab for Kids
+                        </h4>
+                        <p className="text-neutral-500 text-xs leading-relaxed">
+                          An online graphic design workshop for the kiddos! Fun, guided Canva projects that teach creativity and digital design skills.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ──────────────────────────────────────────
           PROCESS
           ────────────────────────────────────────── */}
       <section id="process" className="py-24 md:py-32 px-6 lg:px-8 bg-neutral-50">
@@ -1199,6 +1336,7 @@ export default function V2Page() {
               <ul className="space-y-3">
                 {[
                   { label: "Work", href: "#work" },
+                  { label: "Academy", href: "#academy" },
                   { label: "About", href: "#about" },
                   { label: "Process", href: "#process" },
                   { label: "Contact", href: "#contact" },
