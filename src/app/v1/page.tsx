@@ -244,7 +244,7 @@ export default function V1Page() {
   const navLinks = [
     { label: 'Services', href: '#services' },
     { label: 'Portfolio', href: '#portfolio' },
-    { label: 'Courses', href: '/courses' },
+    { label: 'Courses', href: '/courses?v=1' },
     { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },
   ]
@@ -1342,7 +1342,7 @@ export default function V1Page() {
               <ul className="space-y-2.5">
                 {[
                   { label: 'Portfolio', href: '#portfolio' },
-                  { label: 'Courses', href: '/courses' },
+                  { label: 'Courses', href: '/courses?v=1' },
                   { label: 'About', href: '#about' },
                   { label: 'Process', href: '#process' },
                   { label: 'Contact', href: '#contact' },

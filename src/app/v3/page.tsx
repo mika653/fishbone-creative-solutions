@@ -276,7 +276,7 @@ function Header() {
   const navLinks = [
     { href: '#services', label: 'Services' },
     { href: '#portfolio', label: 'Portfolio' },
-    { href: '/courses', label: 'Courses' },
+    { href: '/courses?v=3', label: 'Courses' },
     { href: '#process', label: 'Process' },
     { href: '#about', label: 'About' },
     { href: '#contact', label: 'Contact' },
@@ -1579,7 +1579,7 @@ function Footer() {
   const footerLinks = [
     { label: 'Services', href: '#services' },
     { label: 'Portfolio', href: '#portfolio' },
-    { label: 'Courses', href: '/courses' },
+    { label: 'Courses', href: '/courses?v=3' },
     { label: 'Process', href: '#process' },
     { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },

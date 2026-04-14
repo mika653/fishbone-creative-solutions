@@ -154,7 +154,7 @@ const PROCESS_PHASES: ProcessPhase[] = [
 const NAV_LINKS = [
   { label: "Work", href: "#work" },
   { label: "Services", href: "#services" },
-  { label: "Courses", href: "/courses" },
+  { label: "Courses", href: "/courses?v=2" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
@@ -1208,7 +1208,7 @@ export default function V2Page() {
               <ul className="space-y-3">
                 {[
                   { label: "Work", href: "#work" },
-                  { label: "Courses", href: "/courses" },
+                  { label: "Courses", href: "/courses?v=2" },
                   { label: "About", href: "#about" },
                   { label: "Process", href: "#process" },
                   { label: "Contact", href: "#contact" },
