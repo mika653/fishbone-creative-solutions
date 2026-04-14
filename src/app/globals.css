@@ -1,26 +1,137 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────
+   FISHBONE CREATIVE SOLUTIONS — DESIGN TOKENS
+   Tailwind v4 @theme inline
+   ───────────────────────────────────────────── */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand palette derived from logo polygon circle */
+  --brand-magenta:    #E91E63;
+  --brand-coral:      #FF5722;
+  --brand-amber:      #FF9800;
+  --brand-gold:       #FFC107;
+  --brand-deep-purple:#9C27B0;
+
+  /* Gradient shorthand */
+  --brand-gradient: linear-gradient(135deg, #9C27B0, #E91E63, #FF5722, #FF9800, #FFC107);
+
+  /* Neutrals */
+  --neutral-50:  #FAFAFA;
+  --neutral-100: #F5F5F5;
+  --neutral-200: #EEEEEE;
+  --neutral-300: #E0E0E0;
+  --neutral-400: #BDBDBD;
+  --neutral-500: #9E9E9E;
+  --neutral-600: #757575;
+  --neutral-700: #616161;
+  --neutral-800: #424242;
+  --neutral-900: #212121;
+
+  /* Semantic */
+  --background: #FFFFFF;
+  --foreground: #1A1A1A;
+  --surface:    #F8F8F8;
+  --border:     #E5E5E5;
 }
 
 @theme inline {
+  /* Brand colors as Tailwind utilities */
+  --color-brand-magenta:     var(--brand-magenta);
+  --color-brand-coral:       var(--brand-coral);
+  --color-brand-amber:       var(--brand-amber);
+  --color-brand-gold:        var(--brand-gold);
+  --color-brand-deep-purple: var(--brand-deep-purple);
+
+  /* Neutral scale */
+  --color-neutral-50:  var(--neutral-50);
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-200: var(--neutral-200);
+  --color-neutral-300: var(--neutral-300);
+  --color-neutral-400: var(--neutral-400);
+  --color-neutral-500: var(--neutral-500);
+  --color-neutral-600: var(--neutral-600);
+  --color-neutral-700: var(--neutral-700);
+  --color-neutral-800: var(--neutral-800);
+  --color-neutral-900: var(--neutral-900);
+
+  /* Semantic */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface:    var(--surface);
+  --color-border:     var(--border);
+
+  /* Typography */
+  --font-sans:    var(--font-inter);
+  --font-display: var(--font-space-grotesk);
+  --font-mono:    var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─────────────────────────────────────────────
+   GLOBAL RESETS & BASE STYLES
+   ───────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus-visible ring using brand color */
+:focus-visible {
+  outline: 2px solid var(--brand-magenta);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Remove default list styles when used in nav */
+nav ul,
+nav ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Smooth image rendering */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--brand-magenta);
+  color: #fff;
+}
+
+/* ─────────────────────────────────────────────
+   BRAND GRADIENT UTILITY
+   ───────────────────────────────────────────── */
+
+.brand-gradient-text {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brand-gradient-bg {
+  background: var(--brand-gradient);
 }
