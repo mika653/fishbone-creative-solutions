@@ -26,6 +26,8 @@ import {
   Users,
   CheckCircle,
   GraduationCap,
+  Gift,
+  Download,
 } from "lucide-react";
 
 /* ─────────────────────────────────────────
@@ -225,6 +227,8 @@ export default function V2Page() {
   const [openService, setOpenService] = useState<number | null>(null);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [leadEmail, setLeadEmail] = useState("");
+  const [leadSubmitted, setLeadSubmitted] = useState(false);
 
   /* Scroll handler for header shadow */
   useEffect(() => {
@@ -802,6 +806,96 @@ export default function V2Page() {
                 </FadeIn>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ──────────────────────────────────────────
+          LEAD MAGNET
+          ────────────────────────────────────────── */}
+      <section className="py-24 md:py-32 px-6 lg:px-8 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left: Content */}
+            <FadeIn>
+              <div>
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="block w-8 h-0.5 rounded-full" style={{ background: "#FF5722" }} />
+                  <span className="text-xs font-medium tracking-[0.2em] uppercase text-neutral-400">Free Resource</span>
+                </div>
+                <h2
+                  className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4"
+                  style={{ fontFamily: "var(--font-space-grotesk)" }}
+                >
+                  Free Canva Starter Kit
+                </h2>
+                <p className="text-neutral-500 text-sm md:text-base leading-relaxed mb-6">
+                  Get 10 ready-to-use Canva templates for social media posts, stories, and business cards. Start creating professional designs in minutes.
+                </p>
+                <ul className="space-y-2.5 mb-8">
+                  {["10 customizable Canva templates", "Social media posts & stories", "Business card template", "Brand color guide worksheet"].map((item) => (
+                    <li key={item} className="flex items-center gap-2.5 text-sm text-neutral-600">
+                      <CheckCircle size={14} style={{ color: "#FF5722" }} className="shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                {leadSubmitted ? (
+                  <div className="flex items-center gap-2 text-sm font-medium" style={{ color: "#FF5722" }}>
+                    <CheckCircle size={18} />
+                    Check your inbox! Your starter kit is on the way.
+                  </div>
+                ) : (
+                  <form
+                    onSubmit={(e) => { e.preventDefault(); if (leadEmail) setLeadSubmitted(true); }}
+                    className="flex flex-col sm:flex-row gap-3"
+                  >
+                    <input
+                      type="email"
+                      placeholder="Enter your email"
+                      value={leadEmail}
+                      onChange={(e) => setLeadEmail(e.target.value)}
+                      required
+                      className="flex-1 px-4 py-3 rounded-lg text-sm border border-neutral-200 text-neutral-900 placeholder-neutral-400 outline-none transition-colors"
+                      style={{ fontFamily: "inherit" }}
+                      onFocus={(e) => (e.target.style.borderColor = "#FF5722")}
+                      onBlur={(e) => (e.target.style.borderColor = "#e5e5e5")}
+                    />
+                    <button
+                      type="submit"
+                      className="flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white cursor-pointer transition-all hover:shadow-lg"
+                      style={{ background: "#FF5722", fontFamily: "inherit" }}
+                    >
+                      <Download size={16} />
+                      Get Free Kit
+                    </button>
+                  </form>
+                )}
+                <p className="text-neutral-400 text-[10px] mt-3">No spam. Unsubscribe anytime.</p>
+              </div>
+            </FadeIn>
+
+            {/* Right: Visual */}
+            <FadeIn delay={200}>
+              <div className="flex items-center justify-center">
+                <div className="relative">
+                  <div className="w-52 h-52 rounded-2xl border border-neutral-200 bg-neutral-50 p-5 rotate-2 shadow-md">
+                    <div className="w-full h-full rounded-lg bg-white border border-neutral-100 flex items-center justify-center">
+                      <div className="text-center">
+                        <Palette size={28} className="text-neutral-300 mx-auto mb-2" />
+                        <div className="text-neutral-600 text-xs font-medium">Social Post</div>
+                        <div className="text-neutral-400 text-[10px]">Template 1 of 10</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute -top-3 -left-5 w-44 h-44 rounded-2xl border border-neutral-100 bg-neutral-50/50 -rotate-6" />
+                  <div className="absolute -bottom-2 -right-4 w-40 h-40 rounded-2xl border border-neutral-100 bg-neutral-50/50 rotate-6" />
+                  {/* Coral accent dot */}
+                  <div className="absolute -bottom-4 -right-4 w-6 h-6 rounded-full -z-10" style={{ background: "#FF5722" }} />
+                </div>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>

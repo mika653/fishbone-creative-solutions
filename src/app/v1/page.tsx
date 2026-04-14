@@ -28,6 +28,8 @@ import {
   GraduationCap,
   Play,
   Users,
+  Gift,
+  Download,
 } from 'lucide-react'
 
 // ─── Types ──────────────────────────────────────────────────────────────────
@@ -198,6 +200,8 @@ export default function V1Page() {
   const [ctaEmail, setCtaEmail] = useState('')
   const [ctaSubmitted, setCtaSubmitted] = useState(false)
   const [formSubmitted, setFormSubmitted] = useState(false)
+  const [leadEmail, setLeadEmail] = useState('')
+  const [leadSubmitted, setLeadSubmitted] = useState(false)
 
   const heroRef = useRef<HTMLDivElement>(null)
   const statsRef = useRef<HTMLDivElement>(null)
@@ -239,6 +243,11 @@ export default function V1Page() {
   const handleCtaSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (ctaEmail) setCtaSubmitted(true)
+  }
+
+  const handleLeadSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (leadEmail) setLeadSubmitted(true)
   }
 
   const navLinks = [
@@ -818,6 +827,89 @@ export default function V1Page() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* ── LEAD MAGNET ──────────────────────────────────────────────── */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative rounded-3xl overflow-hidden" style={{ background: 'linear-gradient(135deg, #1a0030, #9C27B0, #E91E63, #FF5722, #FF9800)' }}>
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+
+            <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 p-8 md:p-12 lg:p-16 items-center">
+              {/* Left: Content */}
+              <div>
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 text-white text-xs font-semibold uppercase tracking-widest mb-5">
+                  <Gift size={12} />
+                  Free Download
+                </div>
+                <h2
+                  className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight"
+                  style={{ fontFamily: 'var(--font-space-grotesk)' }}
+                >
+                  Free Canva Starter Kit
+                </h2>
+                <p className="text-white/80 text-sm md:text-base leading-relaxed mb-6">
+                  Get 10 ready-to-use Canva templates for social media posts, stories, and business cards. Start creating professional designs in minutes — no design experience needed.
+                </p>
+                <ul className="space-y-2.5 mb-8">
+                  {['10 customizable Canva templates', 'Social media posts & stories', 'Business card template', 'Brand color guide worksheet'].map((item) => (
+                    <li key={item} className="flex items-center gap-2.5 text-sm text-white/90">
+                      <CheckCircle size={15} className="text-[#FFC107] shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Email capture */}
+                {leadSubmitted ? (
+                  <div className="flex items-center gap-2 text-sm text-[#FFC107] font-medium">
+                    <CheckCircle size={18} />
+                    Check your inbox! Your starter kit is on the way.
+                  </div>
+                ) : (
+                  <form onSubmit={handleLeadSubmit} className="flex flex-col sm:flex-row gap-3">
+                    <input
+                      type="email"
+                      placeholder="Enter your email"
+                      value={leadEmail}
+                      onChange={(e) => setLeadEmail(e.target.value)}
+                      required
+                      className="flex-1 px-4 py-3 rounded-lg text-sm bg-white/10 border border-white/20 text-white placeholder-white/50 outline-none focus:border-[#FFC107] transition-colors"
+                    />
+                    <button
+                      type="submit"
+                      className="flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold bg-white text-[#E91E63] hover:bg-white/90 transition-colors cursor-pointer"
+                    >
+                      <Download size={16} />
+                      Get Free Kit
+                    </button>
+                  </form>
+                )}
+                <p className="text-white/40 text-[10px] mt-3">No spam. Unsubscribe anytime.</p>
+              </div>
+
+              {/* Right: Visual */}
+              <div className="hidden lg:flex items-center justify-center">
+                <div className="relative">
+                  {/* Stacked template mockups */}
+                  <div className="w-56 h-56 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-sm p-4 rotate-3 shadow-2xl">
+                    <div className="w-full h-full rounded-lg bg-white/10 flex items-center justify-center">
+                      <div className="text-center">
+                        <Palette size={32} className="text-white/60 mx-auto mb-2" />
+                        <div className="text-white/80 text-xs font-medium">Social Post</div>
+                        <div className="text-white/40 text-[10px]">Template 1 of 10</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute -top-4 -left-6 w-48 h-48 rounded-2xl bg-white/5 border border-white/10 -rotate-6" />
+                  <div className="absolute -bottom-3 -right-5 w-44 h-44 rounded-2xl bg-white/5 border border-white/10 rotate-6" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

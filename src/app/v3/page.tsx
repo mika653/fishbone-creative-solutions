@@ -25,6 +25,8 @@ import {
   Users,
   CheckCircle,
   GraduationCap,
+  Gift,
+  Download,
 } from 'lucide-react';
 
 /* ─────────────────────────────────────────────
@@ -960,6 +962,118 @@ function Process() {
 }
 
 /* ─────────────────────────────────────────────
+   LEAD MAGNET
+   ───────────────────────────────────────────── */
+
+function LeadMagnet() {
+  const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  return (
+    <section className="py-24 md:py-32" style={{ background: '#0D0D0D' }}>
+      <div className="max-w-5xl mx-auto px-5 md:px-10">
+        <Reveal>
+          <div
+            className="rounded-2xl p-8 md:p-12 lg:p-16 relative overflow-hidden"
+            style={{
+              background: 'rgba(255,255,255,0.03)',
+              border: '1px solid rgba(255,193,7,0.15)',
+              backdropFilter: 'blur(20px)',
+            }}
+          >
+            {/* Glow effect */}
+            <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full opacity-20" style={{ background: 'radial-gradient(circle, #FFC107, transparent)' }} />
+
+            <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              {/* Left: Content */}
+              <div>
+                <span
+                  className="inline-flex items-center gap-2 text-[10px] font-bold tracking-wider uppercase px-3 py-1.5 rounded-full mb-5"
+                  style={{ background: 'rgba(255,193,7,0.1)', color: '#FFC107' }}
+                >
+                  <Gift size={12} />
+                  Free Download
+                </span>
+                <h2
+                  className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight"
+                  style={{ fontFamily: 'var(--font-space-grotesk)' }}
+                >
+                  Free Canva{' '}
+                  <span style={{ background: 'linear-gradient(135deg, #FFC107, #FF9800)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                    Starter Kit
+                  </span>
+                </h2>
+                <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                  Get 10 ready-to-use Canva templates for social media posts, stories, and business cards. Start creating professional designs in minutes — no design experience needed.
+                </p>
+                <ul className="space-y-2.5 mb-8">
+                  {['10 customizable Canva templates', 'Social media posts & stories', 'Business card template', 'Brand color guide worksheet'].map((item) => (
+                    <li key={item} className="flex items-center gap-2.5 text-sm text-gray-300">
+                      <CheckCircle size={14} style={{ color: '#FFC107' }} className="shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                {submitted ? (
+                  <div className="flex items-center gap-2 text-sm font-medium" style={{ color: '#FFC107' }}>
+                    <CheckCircle size={18} />
+                    Check your inbox! Your starter kit is on the way.
+                  </div>
+                ) : (
+                  <form onSubmit={(e) => { e.preventDefault(); if (email) setSubmitted(true); }} className="flex flex-col sm:flex-row gap-3">
+                    <input
+                      type="email"
+                      placeholder="Enter your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      className="flex-1 px-4 py-3 rounded-lg text-sm text-white placeholder-gray-500 outline-none transition-colors"
+                      style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
+                      onFocus={(e) => (e.target.style.borderColor = 'rgba(255,193,7,0.4)')}
+                      onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
+                    />
+                    <button
+                      type="submit"
+                      className="flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-black cursor-pointer transition-all hover:shadow-lg"
+                      style={{ background: 'linear-gradient(135deg, #FFC107, #FF9800)' }}
+                    >
+                      <Download size={16} />
+                      Get Free Kit
+                    </button>
+                  </form>
+                )}
+                <p className="text-gray-600 text-[10px] mt-3">No spam. Unsubscribe anytime.</p>
+              </div>
+
+              {/* Right: Visual */}
+              <div className="hidden lg:flex items-center justify-center">
+                <div className="relative">
+                  <div
+                    className="w-52 h-52 rounded-2xl p-5 rotate-3 shadow-2xl"
+                    style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
+                  >
+                    <div className="w-full h-full rounded-lg flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.05)' }}>
+                      <div className="text-center">
+                        <Palette size={28} className="mx-auto mb-2" style={{ color: 'rgba(255,193,7,0.5)' }} />
+                        <div className="text-gray-300 text-xs font-medium">Social Post</div>
+                        <div className="text-gray-600 text-[10px]">Template 1 of 10</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute -top-3 -left-5 w-44 h-44 rounded-2xl -rotate-6" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }} />
+                  <div className="absolute -bottom-2 -right-4 w-40 h-40 rounded-2xl rotate-6" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────────
    ABOUT
    ───────────────────────────────────────────── */
 
@@ -1712,6 +1826,7 @@ export default function V3Page() {
       <Services />
       <Portfolio />
       <Process />
+      <LeadMagnet />
       <About />
       <Testimonials />
       <CTABanner />
